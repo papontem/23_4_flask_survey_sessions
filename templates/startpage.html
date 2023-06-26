@@ -1,0 +1,26 @@
+<!-- prettier-ignore -->
+{% extends 'base.html'%} 
+{% block title %}Startpage{% endblock %}
+<!--  -->
+{% block content %}
+<header>
+	<h1>Home/StartPage</h1>
+	<p>Welcome to this simple Flask Survey app</p>
+</header>
+<hr />
+<h2>{{selected_survey.title}}</h2>
+<h3>Instructions</h3>
+<p>
+	{{selected_survey.instructions}}
+	<br />
+	Once you submit the answer for a question there is no going back.
+	<br />
+	Please refraim from attempting to skip questions by manipulating the page url.
+	<br />
+	Press the Start button whenever you feel ready.
+</p>
+<form action="/questions/0">
+	<button>Start!</button>
+</form>
+
+{% endblock %}

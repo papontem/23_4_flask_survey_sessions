@@ -1,0 +1,31 @@
+<!-- prettier-ignore -->
+{% extends 'base.html'%} 
+
+{% block title%}Question #{{question_id}} {% endblock%}
+
+{% block content %}
+
+<h2>{{selected_survey.title}}</h2>
+
+<h3>Question #{{question_id}}</h3>
+
+<form action="/answer">
+	<p>{{question.question}}</p>
+	{% for choice in question.choices %}
+	<input type="radio" name="answer" value="{{ choice }}" />
+	<label for="answer">{{ choice }}</label><br />
+	{% endfor %} {% if question.allow_text != False %}
+	<label>Your Answer:</label><br />
+	<input type="text" name="text_answer" placeholder="Enter your answer" />
+	{% endif %}
+
+	<!-- <input type="radio" id="no" name="choice" value="no" />
+	<label for="no">NO</label>
+	<br />
+	<input type="radio" id="yes" name="choice" value="yes" />
+	<label for="yes">YES</label>
+	<br /> -->
+	<input type="submit" value="Submit & Next" />
+	<!-- <button>Submit!</button> -->
+</form>
+{% endblock %}

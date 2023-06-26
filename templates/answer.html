@@ -1,0 +1,18 @@
+<!-- prettier-ignore -->
+{% extends 'base.html'%} 
+
+{% block title%}Question #{{previous_question_id}} {% endblock%}
+
+{% block content %}
+<h2>{{selected_survey.title}}</h2>
+
+<h3>For Question#{{previous_question_id}}:</h3>
+<p>{{selected_survey.questions[previous_question_id].question}}</p>
+
+<h3>your Answer Was:</h3>
+<p>{{answer}}</p>
+
+<form action="/question/{{question_id}}">
+	<button>NEXT QUESTION!</button>
+</form>
+{% endblock %}

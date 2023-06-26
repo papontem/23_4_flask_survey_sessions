@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!--V-ANIMATED-Tab-Icon-V-->
+		<link rel="icon" type="gif" href="/static/pam_favicon_animated.gif" />
+		<!-- empty for now -->
+		<!-- <link rel="stylesheet" href="/static/styles.css" /> -->
+		<title>{% block title %}TITLE GOES HERE{% endblock %}</title>
+	</head>
+	<body>
+		<main id="content">
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			<!-- check if messages exist -->
+			{% if messages %}
+			<section class="messages">
+				<ol class="messages">
+					{% for category,msg in messages %}
+					<li class="{{ category }}"><p>{{ msg }}</p></li>
+					{% endfor %}
+				</ol>
+			</section>
+			{% endif %} {% endwith %}
+			<h1>Flask Survey</h1>
+			{% block content %}BODY CONTENT GOES HERE{% endblock %}
+			<!--line to seperate main body and footer -->
+			<hr />
+			<footer>
+				<section class="Footer_Content">
+					<p>&copy; Phedias A.M. All Rights Reserved</p>
+				</section>
+			</footer>
+		</main>
+	</body>
+</html>
