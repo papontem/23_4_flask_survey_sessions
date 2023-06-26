@@ -9,6 +9,7 @@
 </header>
 <hr />
 <h2>{{selected_survey.title}}</h2>
+
 <h3>Instructions</h3>
 <p>
 	{{selected_survey.instructions}}
@@ -19,7 +20,7 @@
 	<br />
 	Press the Start button whenever you feel ready.
 </p>
-<form action="/questions/0">
+<form action="/start" method="POST">
 	<button>Start!</button>
 </form>
 
